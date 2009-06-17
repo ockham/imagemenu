@@ -56,7 +56,7 @@ image menu takes a number of options that you can use to modify its behavior:
 
 h2. Examples
 
-TODO
+See http://www.raz.or.at/imagemenu/
 
 h2. Authors
 
