@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>phatfusion : image menu</title>
+
+<link rel="stylesheet" href="../_common/css/main.css" type="text/css" media="all">
+
+<link href="imageMenu.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../_common/js/prototype.js"></script>
+<script type="text/javascript" src="../_common/js/scriptaculous.js"></script>
+<script type="text/javascript" src="imageMenu.js"></script>
+
+
+
+</head>
+<body>
+
+	<div id="container">
+	
+		<div id="logo"><h1>phatfusion</h1></div>
+		<div class="nav"><a href="../index.htm">home</a></div>
+		<p class="desc">javascript and flash development.</p>
+		
+		
+		<h2 class="imagemenu">image menu</h2>
+		<p class="version">version 2.2</p>
+		<p class="description">horizontal menu, reveals more of the image as you rollover it.</p>
+		
+		
+		<h3 class="example">example</h3>
+		<div id="example">
+			<div id="imageMenu">
+			<ul>
+				<li class="landscapes"><a href="http://www.aaronbirchphotography.com">Landscapes</a></li>
+				<li class="people"><a href="http://www.aaronbirchphotography.com">People</a></li>
+				<li class="nature"><a href="http://www.aaronbirchphotography.com">Nature</a></li>
+				<li class="urban"><a href="http://www.aaronbirchphotography.com">Urban</a></li>
+				<li class="abstract"><a href="http://www.aaronbirchphotography.com">Abstract</a></li>
+			</ul>
+			</div>
+		
+		<script type="text/javascript">
+			
+			document.observe('dom:loaded', function() {
+				var myMenu = new ImageMenu($$('#imageMenu a'),{openWidth:310, border:2, onOpen:function(e,i){alert(e);}});
+			});
+		</script>
+		</div>
+		
+		<h3 class="features">features</h3>
+		<div id="features">
+			<ul>
+				<li>2 optional onClick events - open & close</li>
+				<li>href passed to onClick events</li>
+				<li>stays open when clicked</li>
+				<li>closes when clicked</li>
+				<li>select item to pre-open</li>
+			</ul>
+		</div>
+		
+		<h3 class="usage">usage</h3>
+		<div id="usage">
+		<pre><code>var myMenu = new ImageMenu('imageMenu', {
+	openWidth:310, 
+	onOpen:function(e,i){console.log(e)}
+});</code></pre>
+			<h3 class="options">options</h3>
+			<dl>
+				<dt>onOpen</dt>
+				<dd>a function to execute when an item is clicked open. If there is an href within the li then that is passed to the function.</dd>
+				<dt>onClose</dt>
+				<dd>same as above but when clicked closed.</dd>
+				<dt>openWidth</dt>
+				<dd>width in px of the items when rolled over. default: 200</dd>
+				<dt>transition</dt>
+				<dd>default: Fx.Transitions.quadOut</dd>
+				<dt>duration</dt>
+				<dd>the length of the transition. default: 400</dd>
+				<dt>open</dt>
+				<dd>the id or index of the item to open on start. default: null</dd>
+				<dt>border</dt>
+				<dd>a px value to tweak the widths when an item is open. default: 0</dd>
+			</dl>
+		</div>
+		
+		<h3 class="compatibility">browser compatibility</h3>
+		<div id="compatibility">
+			<ul>
+				<li>Firefox 2 (mac / pc)</li>
+				<li>IE 7</li>
+				<li>IE 6</li>
+				<li>Safari (mac)</li>
+			</ul>
+		</div>
+		
+		<h3 class="requirements">requirements</h3>
+		<div id="requirements">
+			<ul>
+				<li><a href="http://www.mootools.net" target="_blank">mootools v1.11</a></li>
+			</ul>
+		</div>
+		
+		<h3 class="downloads">downloads</h3>
+		<div id="downloads">
+			<ul>
+				<li><a href="imagemenu.zip">imagemenu.zip</a></li>
+			</ul>
+		</div>
+		
+		
+	</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3333085-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
