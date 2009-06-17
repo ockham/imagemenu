@@ -62,7 +62,7 @@ h2. Authors
 
 Ported to protoype and script.aculo.us by "Bernhard Reiter":http://github.com/ockham - "raz.or.at":http://raz.or.at/blog/
 
-Original mootools based version by "Samuel Birch":http://www.samuelbirch.com/ -  "phatfusion image menu:"http://www.phatfusion.net/imagemenu/
+Original mootools based version by "Samuel Birch":http://www.samuelbirch.com/ -  "phatfusion image menu:http://www.phatfusion.net/imagemenu/
 
 h3. Credits
 
