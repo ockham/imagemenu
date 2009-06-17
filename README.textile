@@ -11,6 +11,11 @@ h2. Features
 * closes when clicked
 * select item to pre-open
 
+h2. Requirements
+
+* Prototype 1.6.1 (that is, bleeding edge RC) -- 1.6.0 (stable) doesn't have support for mouseenter and mouseleave events, so it won't work!
+* script.aculo.us 1.8.2
+
 h2. Compatibility
 
 TODO
