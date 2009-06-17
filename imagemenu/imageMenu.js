@@ -1,4 +1,4 @@
-/**************************************************************
+﻿/**************************************************************
 
 	Script	: Image Menu for prototype & script.aculo.us
 	Version	: 0.1
@@ -18,40 +18,35 @@ var ImageMenu = Class.create({
 			onClose: Class.empty,
 			openWidth: 200,
 			transition: Effect.Transitions.linear, // TODO: quadOut ?
-			duration: 400,
+			duration: 0.4, // dureation in seconds
 			open: null,
 			border: 0
 		};
 	},
 
 	initialize: function(elements, options){
-		this.options = this.getOptions();
-		if (options.onOpen)	this.options.onOpen = options.onOpen;
-		if (options.onClose)	this.options.onClose = options.onClose;
-		if (options.openWidth)	this.options.openWidth = options.openWidth;
-		if (options.transition) this.options.transition = options.transition;
-		if (options.duration)	this.options.duration = options.duration;
-		if (options.open)	this.options.open = options.open;
-		if (options.border)	this.options.border = options.border;
-
-		this.options.duration = this.options.duration / 1000; // seconds, as opposed to mootols' milliseconds
-
+		this.options = Object.extend(this.getOptions(), options);
 		this.elements = elements;
 		this.widths = {};
-		this.widths.closed = parseInt(this.elements[0].getStyle('width'));
+		this.widths.closed = parseInt(this.elements[0].getStyle('width'), 10);
 		this.widths.openSelected = this.options.openWidth;
 		this.widths.openOthers = Math.round(((this.widths.closed*this.elements.length) - (this.widths.openSelected+this.options.border)) / (this.elements.length-1));		
-
 		this.elements.each(function(el,i){
 			el.observe('mouseenter', function(e){
 				e.stop();
-				this.reset(i);
+        // delay so only one effect batch will run at a time
+        // without the delay you see stuttering because multiple effects for expanding/contracting are running at the same time
+        clearTimeout(this.resetTimer);
+				this.resetTimer = this.reset.bind(this, i).delay(0.1);
 				
 			}.bind(this));
 			
 			el.observe('mouseleave', function(e){
 				e.stop();
-				this.reset(this.options.open);
+        // delay so only one effect batch will run at a time
+        // without the delay you see stuttering because multiple effects for expanding/contracting are running at the same time
+        clearTimeout(this.resetTimer);
+				this.resetTimer = this.reset.bind(this, this.options.open).delay(0.1);
 				
 			}.bind(this));
 			
@@ -91,20 +86,21 @@ var ImageMenu = Class.create({
 	},
 	
 	reset: function(num){
+    var width;
 		if(Object.isNumber(num)){
-			var width = this.widths.openOthers;
+			width = this.widths.openOthers;
 			if(num+1 == this.elements.length){
 				width += this.options.border;
 			}
 		}else{
-			var width = this.widths.closed;
+			width = this.widths.closed;
 		}
 		
 		var obj = {};
 		this.elements.each(function(el,i){
 			var w = width;
 			if(i == this.elements.length-1){
-				w = width+5
+				w = width+5;
 			}
 			obj[i] = {'width': w};
 		}.bind(this));
