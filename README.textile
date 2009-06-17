@@ -1,0 +1,69 @@
+h1. image menu
+
+horizontal menu, reveals more of the image as you rollover it -- written in prototype and script.aculo.us
+originally written by Sam Birch for mootools: http://www.phatfusion.net/imagemenu/
+
+h2. Features
+
+* 2 optional onClick events - open & close
+* href passed to onClick events
+* stays open when clicked
+* closes when clicked
+* select item to pre-open
+
+h2. Compatibility
+
+TODO
+
+h2. Usage
+
+h3. HTML/JS
+
+<pre><code class="html">
+<script type="text/javascript" src="../_common/js/prototype.js"></script>
+<script type="text/javascript" src="../_common/js/scriptaculous.js"></script>
+<script type="text/javascript" src="imageMenu.js"></script>
+...
+<div id="imageMenu">
+	<ul>
+		<li class="landscapes"><a href="http://www.aaronbirchphotography.com">Landscapes</a></li>
+		<li class="people"><a href="http://www.aaronbirchphotography.com">People</a></li>
+		<li class="nature"><a href="http://www.aaronbirchphotography.com">Nature</a></li>
+		<li class="urban"><a href="http://www.aaronbirchphotography.com">Urban</a></li>
+		<li class="abstract"><a href="http://www.aaronbirchphotography.com">Abstract</a></li>
+	</ul>
+</div>
+		
+<script type="text/javascript">
+	document.observe('dom:loaded', function() {
+		var myMenu = new ImageMenu($$('#imageMenu a'),{openWidth:310, border:2, onOpen:function(e,i){alert(e);}});
+	});
+</script>
+</code></pre>
+
+h3. Options
+
+image menu takes a number of options that you can use to modify its behavior:
+
+|_. Option |_. Default |_. Description |
+| onOpen |   | a function to execute when an item is clicked open. If there is an href within the li then that is passed to the function.. |
+| onClose |  | same as above but when clicked closed. |
+| openWidth | 200 | width in px of the items when rolled over. |
+| transition | Effect.Transitions.linear |  |
+| duration | 400 | the length of the transition, in milloseconds. |
+| open | null | the id or index of the item to open on start. |
+| border | 0 | a px value to tweak the widths when an item is open. |
+
+h2. Examples
+
+TODO
+
+h2. Authors
+
+Ported to protoype and script.aculo.us by "Bernhard Reiter":http://github.com/ockham - "raz.or.at":http://raz.or.at/blog/
+
+Original mootools based version by "Samuel Birch":http://www.samuelbirch.com/ -  "phatfusion image menu:"http://www.phatfusion.net/imagemenu/
+
+h3. Credits
+
+Thanks to users ilyak and gf3 on #prototype for helping me porting!
